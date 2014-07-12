@@ -1,0 +1,13 @@
+/* Add additional stylesheets below
+-------------------------------------------------- */
+.facetitem {
+    cursor: pointer;
+}
+.facetitem:hover{
+    background: activecaption;
+}
+.facetitem.activefacet {
+    background:activecaption;
+    text-decoration:underline;
+    color: white;
+}

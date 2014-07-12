@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY webprotege "http://protege.stanford.edu/webprotege/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ba "http://www.talamhoang.com/ontologies/bachelorarbeit.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.talamhoang.com/ontologies/bachelorarbeit.owl#"
+     xml:base="http://www.talamhoang.com/ontologies/bachelorarbeit.owl"
+     xmlns:webprotege="http://protege.stanford.edu/webprotege/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ba="http://www.talamhoang.com/ontologies/bachelorarbeit.owl#">
+    <owl:Ontology rdf:about="http://www.talamhoang.com/ontologies/bachelorarbeit.owl">
+        <webprotege:revision rdf:datatype="&xsd;integer">1</webprotege:revision>
+        <dc:creator rdf:datatype="&xsd;string">HoangTa</dc:creator>
+        <dc:date rdf:datatype="&xsd;dateTime">Jul 5, 2014 1:37:53 PM</dc:date>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#gehörtZuFakultät -->
+
+    <owl:ObjectProperty rdf:about="&ba;gehörtZuFakultät">
+        <owl:inverseOf rdf:resource="&ba;hatLehrstuhl"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#hatLehrstuhl -->
+
+    <owl:ObjectProperty rdf:about="&ba;hatLehrstuhl">
+        <rdfs:domain rdf:resource="&ba;Fakultät"/>
+        <rdfs:range rdf:resource="&ba;Lehrstuhl"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#hatLehrstuhlinhaber -->
+
+    <owl:ObjectProperty rdf:about="&ba;hatLehrstuhlinhaber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ba;Lehrstuhl"/>
+        <rdfs:subPropertyOf rdf:resource="&ba;hatMitarbeiter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#hatMitarbeiter -->
+
+    <owl:ObjectProperty rdf:about="&ba;hatMitarbeiter">
+        <rdfs:domain rdf:resource="&ba;Lehrstuhl"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#hatSekretärIn -->
+
+    <owl:ObjectProperty rdf:about="&ba;hatSekretärIn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ba;hatMitarbeiter"/>
+        <owl:inverseOf rdf:resource="&ba;istSekretärInVon"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#hatVoraussetzung -->
+
+    <owl:ObjectProperty rdf:about="&ba;hatVoraussetzung">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&ba;Lehrveranstaltung"/>
+        <rdfs:domain rdf:resource="&ba;Lehrveranstaltung"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#hatÜbung -->
+
+    <owl:ObjectProperty rdf:about="&ba;hatÜbung"/>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#istGebäudeFürLehrveranstaltung -->
+
+    <owl:ObjectProperty rdf:about="&ba;istGebäudeFürLehrveranstaltung"/>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#istLehrstuhlinhaberVon -->
+
+    <owl:ObjectProperty rdf:about="&ba;istLehrstuhlinhaberVon">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&ba;Lehrstuhl"/>
+        <owl:inverseOf rdf:resource="&ba;hatLehrstuhlinhaber"/>
+        <rdfs:subPropertyOf rdf:resource="&ba;istMitarbeiterVonLehrstuhl"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#istMitarbeiterVonFakultät -->
+
+    <owl:ObjectProperty rdf:about="&ba;istMitarbeiterVonFakultät">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ba;istMitarbeiterVonLehrstuhl"/>
+            <rdf:Description rdf:about="&ba;gehörtZuFakultät"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#istMitarbeiterVonLehrstuhl -->
+
+    <owl:ObjectProperty rdf:about="&ba;istMitarbeiterVonLehrstuhl">
+        <rdfs:range rdf:resource="&ba;Lehrstuhl"/>
+        <owl:inverseOf rdf:resource="&ba;hatMitarbeiter"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#istSekretärInVon -->
+
+    <owl:ObjectProperty rdf:about="&ba;istSekretärInVon">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ba;istMitarbeiterVonLehrstuhl"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#istVerantwortlichFürStudiengang -->
+
+    <owl:ObjectProperty rdf:about="&ba;istVerantwortlichFürStudiengang">
+        <rdfs:range rdf:resource="&ba;Fakultät"/>
+        <rdfs:domain rdf:resource="&ba;Studiengang"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#lehrt -->
+
+    <owl:ObjectProperty rdf:about="&ba;lehrt">
+        <rdfs:domain rdf:resource="&ba;Dozent"/>
+        <rdfs:range rdf:resource="&ba;Lehrveranstaltung"/>
+        <rdfs:range rdf:resource="&ba;Module"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#studiert -->
+
+    <owl:ObjectProperty rdf:about="&ba;studiert">
+        <rdfs:range rdf:resource="&ba;Studiengang"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#studiertGleichenStudiengang -->
+
+    <owl:ObjectProperty rdf:about="&ba;studiertGleichenStudiengang">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#verpflichtendesAngebotFür -->
+
+    <owl:ObjectProperty rdf:about="&ba;verpflichtendesAngebotFür">
+        <rdfs:domain rdf:resource="&ba;Lehrveranstaltung"/>
+        <rdfs:domain rdf:resource="&ba;Module"/>
+        <rdfs:range rdf:resource="&ba;Studiengang"/>
+        <owl:propertyDisjointWith rdf:resource="&ba;wählbaresAngebotFür"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#voraussetzungFür -->
+
+    <owl:ObjectProperty rdf:about="&ba;voraussetzungFür">
+        <owl:inverseOf rdf:resource="&ba;hatVoraussetzung"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#wirdAngebotenDurch -->
+
+    <owl:ObjectProperty rdf:about="&ba;wirdAngebotenDurch">
+        <rdfs:range rdf:resource="&ba;Fakultät"/>
+        <rdfs:domain rdf:resource="&ba;Studiengang"/>
+        <owl:inverseOf rdf:resource="&ba;istVerantwortlichFürStudiengang"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#wirdGelehrtDurch -->
+
+    <owl:ObjectProperty rdf:about="&ba;wirdGelehrtDurch">
+        <rdfs:range rdf:resource="&ba;Dozent"/>
+        <rdfs:domain rdf:resource="&ba;Lehrveranstaltung"/>
+        <rdfs:domain rdf:resource="&ba;Module"/>
+        <owl:inverseOf rdf:resource="&ba;lehrt"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#wählbaresAngebotFür -->
+
+    <owl:ObjectProperty rdf:about="&ba;wählbaresAngebotFür">
+        <rdfs:domain rdf:resource="&ba;Lehrveranstaltung"/>
+        <rdfs:domain rdf:resource="&ba;Module"/>
+        <rdfs:range rdf:resource="&ba;Studiengang"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#übungZu -->
+
+    <owl:ObjectProperty rdf:about="&ba;übungZu">
+        <rdfs:range rdf:resource="&ba;Vorlesung"/>
+        <owl:inverseOf rdf:resource="&ba;hatÜbung"/>
+        <rdfs:domain rdf:resource="&ba;Übung"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Homepage -->
+
+    <owl:DatatypeProperty rdf:about="&ba;Homepage">
+        <rdfs:domain rdf:resource="&ba;Fakultät"/>
+        <rdfs:domain rdf:resource="&ba;Lehrstuhl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Link -->
+
+    <owl:DatatypeProperty rdf:about="&ba;Link">
+        <rdfs:domain rdf:resource="&ba;Module"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Nachname -->
+
+    <owl:DatatypeProperty rdf:about="&ba;Nachname">
+        <rdfs:domain rdf:resource="&ba;Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Semester -->
+
+    <owl:DatatypeProperty rdf:about="&ba;Semester">
+        <rdfs:domain rdf:resource="&ba;Module"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Studiendauer -->
+
+    <owl:DatatypeProperty rdf:about="&ba;Studiendauer">
+        <rdfs:domain rdf:resource="&ba;Studiengang"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Studiengangsname -->
+
+    <owl:DatatypeProperty rdf:about="&ba;Studiengangsname">
+        <rdfs:domain rdf:resource="&ba;Studiengang"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Bachelor-Stg -->
+
+    <owl:Class rdf:about="&ba;Bachelor-Stg">
+        <rdfs:subClassOf rdf:resource="&ba;Studiengang"/>
+        <owl:disjointWith rdf:resource="&ba;Bachelor2Fach"/>
+        <owl:disjointWith rdf:resource="&ba;Diplom-Stg"/>
+        <owl:disjointWith rdf:resource="&ba;Master-Stg"/>
+        <owl:disjointWith rdf:resource="&ba;Master2Fach"/>
+        <owl:disjointWith rdf:resource="&ba;Staatsexamen-Stg"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Bachelor2Fach -->
+
+    <owl:Class rdf:about="&ba;Bachelor2Fach">
+        <rdfs:subClassOf rdf:resource="&ba;Studiengang"/>
+        <owl:disjointWith rdf:resource="&ba;Diplom-Stg"/>
+        <owl:disjointWith rdf:resource="&ba;Master-Stg"/>
+        <owl:disjointWith rdf:resource="&ba;Master2Fach"/>
+        <owl:disjointWith rdf:resource="&ba;Staatsexamen-Stg"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Diplom-Stg -->
+
+    <owl:Class rdf:about="&ba;Diplom-Stg">
+        <rdfs:subClassOf rdf:resource="&ba;Studiengang"/>
+        <owl:disjointWith rdf:resource="&ba;Master-Stg"/>
+        <owl:disjointWith rdf:resource="&ba;Master2Fach"/>
+        <owl:disjointWith rdf:resource="&ba;Staatsexamen-Stg"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Dozent -->
+
+    <owl:Class rdf:about="&ba;Dozent">
+        <rdfs:subClassOf rdf:resource="&ba;Universitätsangehöriger"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Fakultät -->
+
+    <owl:Class rdf:about="&ba;Fakultät">
+        <rdfs:label xml:lang="de">Fakultät</rdfs:label>
+        <rdfs:label xml:lang="en">Faculty</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Frau -->
+
+    <owl:Class rdf:about="&ba;Frau">
+        <rdfs:label xml:lang="de">Frau</rdfs:label>
+        <rdfs:label xml:lang="en">Woman</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ba;Person"/>
+        <owl:disjointWith rdf:resource="&ba;Mann"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Institut -->
+
+    <owl:Class rdf:about="&ba;Institut">
+        <rdfs:subClassOf rdf:resource="&ba;Fakultät"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Lehrstuhl -->
+
+    <owl:Class rdf:about="&ba;Lehrstuhl">
+        <rdfs:subClassOf rdf:resource="&ba;Institut"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Lehrveranstaltung -->
+
+    <owl:Class rdf:about="&ba;Lehrveranstaltung">
+        <rdfs:label xml:lang="de">Lehrveranstaltung</rdfs:label>
+        <rdfs:label xml:lang="en">Course</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Mann -->
+
+    <owl:Class rdf:about="&ba;Mann">
+        <rdfs:subClassOf rdf:resource="&ba;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Master-Stg -->
+
+    <owl:Class rdf:about="&ba;Master-Stg">
+        <rdfs:subClassOf rdf:resource="&ba;Studiengang"/>
+        <owl:disjointWith rdf:resource="&ba;Master2Fach"/>
+        <owl:disjointWith rdf:resource="&ba;Staatsexamen-Stg"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Master2Fach -->
+
+    <owl:Class rdf:about="&ba;Master2Fach">
+        <rdfs:subClassOf rdf:resource="&ba;Studiengang"/>
+        <owl:disjointWith rdf:resource="&ba;Staatsexamen-Stg"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Module -->
+
+    <owl:Class rdf:about="&ba;Module"/>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Person -->
+
+    <owl:Class rdf:about="&ba;Person">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Seminar -->
+
+    <owl:Class rdf:about="&ba;Seminar">
+        <rdfs:subClassOf rdf:resource="&ba;Lehrveranstaltung"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Staatsexamen-Stg -->
+
+    <owl:Class rdf:about="&ba;Staatsexamen-Stg">
+        <rdfs:subClassOf rdf:resource="&ba;Studiengang"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Studiengang -->
+
+    <owl:Class rdf:about="&ba;Studiengang">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Universitätsangehöriger -->
+
+    <owl:Class rdf:about="&ba;Universitätsangehöriger">
+        <rdfs:subClassOf rdf:resource="&ba;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Vorlesung -->
+
+    <owl:Class rdf:about="&ba;Vorlesung">
+        <rdfs:label xml:lang="de">Vorlesung</rdfs:label>
+        <rdfs:label xml:lang="en">Lecture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ba;Lehrveranstaltung"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.talamhoang.com/ontologies/bachelorarbeit.owl#Übung -->
+
+    <owl:Class rdf:about="&ba;Übung">
+        <rdfs:subClassOf rdf:resource="&ba;Lehrveranstaltung"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,47 @@
+<#import "../layout/defaultLayout.ftl.html" as layout> 
+<@layout.myLayout "Semantic Search">    
+<div id="mainDiv" class="col-md-8">
+<form action="" method="post" role="form" id="search">
+        <div class="form-group">
+            <label for="modName"> Module Name </label>            
+            <input class="form-control" type="text" id="modName" name="modName" placeholder="Geben Sie den Name des Moduls ein" />
+        </div>
+        <div class="form-group">
+            <label for="modArt">Modulart</label></th>
+            <select class="form-control" id="modArt" name="modArt">
+                <option selected="selected" value="alle">alle</option>
+                <option value="wahl">Wahlpflichtmodul</option>
+                <option value="pflicht">Pflichtmodul</option>                
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="studienGang">Studiengang</label>
+            <input class="form-control" type="text" id="studienGang" name="studienGang" placeholder="Geben Sie den Name des Studiengangs ein" />
+        </div>
+        
+        <div class="form-group">
+            <label for="dozent"> Name des Dozenten </label>
+            <input class="form-control" type="text" id="dozent" name="dozent" placeholder="Geben Sie den Name des Dozenten ein"  />
+        </div>
+        <div class="form-group">
+            <label for="sem">Semester</label></th>
+            <select class="form-control" id="sem" name="sem">
+                <option selected="selected" value="alle">alle</option>
+                <option value="SS">Sommersemester</option>
+                <option value="WS">Wintersemester</option>
+            </select>
+        </div>
+
+    <p>
+        <input type="submit" class="btn btn-primary btn-lg" value="Search" /> 
+    </p>
+</form>
+<div id="modulen"></div>
+</div>
+<div id="selection" class="col-md-4">
+    <div id="fakultät"></div>
+    <div id="studiengang">
+       
+    </div>
+</div>
+</@layout.myLayout>
