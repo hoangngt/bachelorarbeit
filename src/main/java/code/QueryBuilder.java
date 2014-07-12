@@ -5,19 +5,6 @@ public class QueryBuilder {
 
 	private SearchQuery query;
 
-	/**
-	 * Construct the QueryBuilder object
-	 * 
-	 * @param modName
-	 *            The modName of the Module
-	 * @param dozentName
-	 *            The dozentName of the Module
-	 * @param fakName
-	 *            The fakName of the Module
-	 * @param sgName
-	 *            The Studiengang of the Module
-
-	 */
 	public QueryBuilder(SearchQuery query) {
 		this.query=query;
             
@@ -31,7 +18,6 @@ public class QueryBuilder {
 	 */
 	public String getSPARQLQuery() {
 		StringBuilder builder = new StringBuilder();
-                String studGangQuery ="";
 		builder.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"
 				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n"
 				+ "PREFIX uni: <"+NS+"> \n");

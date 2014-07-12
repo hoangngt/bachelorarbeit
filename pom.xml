@@ -174,19 +174,19 @@
         <!-- comment ninja-standalone dependency and  -->
         <!-- uncomment the dependency for ninja-servlet -->
         
-        <dependency>
+<!--        <dependency>
             <groupId>org.ninjaframework</groupId>
             <artifactId>ninja-servlet</artifactId>
             <version>${ninja.version}</version>
-        </dependency>
+        </dependency>-->
         
-        <!--
+        
         <dependency>
             <groupId>org.ninjaframework</groupId>
             <artifactId>ninja-standalone</artifactId>
             <version>${ninja.version}</version>
         </dependency>
-        -->
+        
         <dependency>
             <groupId>org.ninjaframework</groupId>
             <artifactId>ninja-test-utilities</artifactId>

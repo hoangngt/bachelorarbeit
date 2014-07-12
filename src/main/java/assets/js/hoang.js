@@ -25,7 +25,8 @@ $.fn.serializeObject = function()
 $(function() {
     $("#update").submit(function() {
         $("#update").hide();
-        $.ajax("/semantic/updateOnto", {
+        $("#updateRes").html("Bitte haben Sie etwas Geduld. Ontologie wird gerade aktualisiert. Es kann mehrere Minuten dauern... ");
+        $.ajax("/ba_hoang/updateOnto", {
             type: 'POST',
             dataType: 'json',
             contentType : 'application/json',
@@ -40,7 +41,7 @@ $(function() {
     $('#search').submit(function() {
         $('#modulen').text("Searching..." );
 
-        $.ajax ("/semantic/contactForm", {
+        $.ajax ("/ba_hoang/contactForm", {
             data: JSON.stringify($('form').serializeObject()),
             contentType : 'application/json',
             type : 'POST',

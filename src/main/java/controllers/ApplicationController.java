@@ -16,8 +16,7 @@
 
 package controllers;
 
-import OntoBuilder.OntoBuilder;
-import OntoBuilder.Parser;
+import OntoBuilder.*;
 import code.QueryBean;
 import code.QueryBuilder;
 import com.google.inject.Singleton;
@@ -33,7 +32,7 @@ import ninja.Results;
 @Singleton
 public class ApplicationController {
   
-    public Result user(SearchQuery squery) throws Exception {
+    public Result SearchProcess(SearchQuery squery) throws Exception {
         QueryBuilder qb = new QueryBuilder(squery);
         OntModel ontModel = OntoBuilder.readModelFromTDB();
     	QueryBean query = new QueryBean(ontModel);  
@@ -50,10 +49,10 @@ public class ApplicationController {
     }
     public Result update() throws IOException {
         System.out.println("Done");
-//        OntoBuilder.createTDB(this.getClass().getResourceAsStream("/res/onto/ontology.owl"));
-//        Parser.parse();
-        OntoBuilder.readModelFromTDB().write(System.out, "RDF/XML");
-        return Results.json().render("Done");
+        OntoBuilder.createTDB(this.getClass().getResourceAsStream("/res/onto/ontology.owl"));
+        Parser.parse();
+        
+        return Results.json().render("Fertig.");
     }
     
 

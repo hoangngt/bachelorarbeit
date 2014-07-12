@@ -28,7 +28,7 @@ public class Routes implements ApplicationRoutes {
     public void init(Router router) {  
         
         router.GET().route("/").with(ApplicationController.class, "index");
-        router.POST().route("/contactForm").with(ApplicationController.class, "user");
+        router.POST().route("/contactForm").with(ApplicationController.class, "SearchProcess");
         router.GET().route("/updateOnto").with(ApplicationController.class, "updateOnto");
         router.POST().route("/updateOnto").with(ApplicationController.class, "update");
  

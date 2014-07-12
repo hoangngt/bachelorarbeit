@@ -19,8 +19,6 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import java.io.IOException;
-import java.util.ArrayList;
-import org.jsoup.Connection.*;
 import org.jsoup.Connection.Method;
 import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
@@ -76,7 +74,7 @@ public class Parser {
                 Elements modContent = ebene3.select("td > br + font");       
                 String dozentName = modContent.get(1).text();  // get name of Dozent
                 String semester = modContent.get(2).text().split(" ")[0];    //get semester
-                // Holen List von Studiengangen, für denen diese Modul verpflichten bzw. wahl ist
+                // Holen List von Studiengangen, für denen diese Modul verpflichtet bzw. wahl ist
                 Elements studienGangen = ebene3.select("table table table tbody").get(2).select("tr"); 
                 for (int i=1; i<studienGangen.size(); i++) {
                     Elements el = studienGangen.get(i).select("font");

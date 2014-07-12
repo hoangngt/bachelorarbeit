@@ -7,16 +7,12 @@
 package OntoBuilder;
 
 import static code.Constants.*;
-import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.ReadWrite;
-import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.reasoner.Reasoner;
-import com.hp.hpl.jena.reasoner.ReasonerRegistry;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import java.io.InputStream;
 
@@ -26,8 +22,7 @@ import java.io.InputStream;
  */
 public class OntoBuilder {
     public static void createTDB(InputStream in) {
-        String directory = "/ontology";
-        Dataset dataset = TDBFactory.createDataset(directory) ;
+        Dataset dataset = TDBFactory.createDataset(TDB_DIR) ;
         dataset.begin(ReadWrite.WRITE); 
         dataset.removeNamedModel(TDB_MODEL);
         Model m = dataset.getNamedModel(TDB_MODEL);
