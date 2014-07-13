@@ -11,7 +11,7 @@
     <artifactId>ba_hoang</artifactId>
     <packaging>war</packaging>
     <groupId>com.hoang.ba</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     
     <url>http://www.ninjaframework.org</url>
     
@@ -174,18 +174,18 @@
         <!-- comment ninja-standalone dependency and  -->
         <!-- uncomment the dependency for ninja-servlet -->
         
-<!--        <dependency>
+        <dependency>
             <groupId>org.ninjaframework</groupId>
             <artifactId>ninja-servlet</artifactId>
             <version>${ninja.version}</version>
-        </dependency>-->
+        </dependency>
         
         
-        <dependency>
+<!--        <dependency>
             <groupId>org.ninjaframework</groupId>
             <artifactId>ninja-standalone</artifactId>
             <version>${ninja.version}</version>
-        </dependency>
+        </dependency>-->
         
         <dependency>
             <groupId>org.ninjaframework</groupId>

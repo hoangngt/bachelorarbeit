@@ -59,12 +59,13 @@ $(function() {
                  facets          : { 
                                      'verpSG'     : 'verpflichtet für',
                                      'wahlSG'    : 'wahlbar für',
-                                     'dozent'     : 'Dozent'
+                                     'dozent'     : 'Dozent',
+                                     'sem'       :'Semester'
                  },  
                  resultSelector  : '#modulen',
                  facetSelector   : '#selection',
                  resultTemplate  : item_template,
-                 orderByOptions  : {'modName': 'Module name', 'dozent': 'Dozent name', 'verpSG': 'Verpflicht', 'RANDOM': 'Random'}
+                 orderByOptions  : {'modName': 'Modulname', 'RANDOM': 'Random'}
                 };
                 $.facetelize(settings);
             },

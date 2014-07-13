@@ -16,19 +16,19 @@ var defaults = {
   facetListContainer : '<div class=facetlist></div>',
   listItemTemplate   : '<div class=facetitem id="<%= id %>"><%= name %> <span class=facetitemcount>(<%= count %>)</span></div>',
   bottomContainer    : '<div class=bottomline></div>',
-  orderByTemplate    : '<div class=orderby><h3><span class="orderby-title">Sort by: </span></h3><ul><% _.each(options, function(value, key) { %>'+
+  orderByTemplate    : '<div class=orderby><h3><span class="orderby-title">Sortiert nach: </span></h3><ul><% _.each(options, function(value, key) { %>'+
                        '<li class=orderbyitem id=orderby_<%= key %>>'+
                        '<%= value %> </li> <% }); %></ul></div>',
-  countTemplate      : '<div class=facettotalcount><%= count %> Results</div>',
-  deselectTemplate   : '<div class=deselectstartover>Deselect all filters</div>',
+  countTemplate      : '<div class=facettotalcount><%= count %> Ergebnisse</div>',
+  deselectTemplate   : '<div class=deselectstartover>Abwählen aller Filters</div>',
   resultTemplate     : '<div class=facetresultbox><%= name %></div>',
-  noResults          : '<div class=results>Sorry, but no items match these criteria</div>',
+  noResults          : '<div class=results>Leider, keine Module gefunden</div>',
   orderByOptions     : {'a': 'by A', 'b': 'by B', 'RANDOM': 'by random'},
   state              : {
                          orderBy : false,
                          filters : {}
                        },
-  showMoreTemplate   : '<a id=showmorebutton>Show more</a>',
+  showMoreTemplate   : '<a id=showmorebutton>Zeige mehr</a>',
   enablePagination   : true,
   paginationCount    : 20
 }

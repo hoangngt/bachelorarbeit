@@ -1,5 +1,9 @@
 /* Add additional stylesheets below
 -------------------------------------------------- */
+.bottomline {
+    margin-top: 20px;
+    border-top: solid 1px blanchedalmond;
+}
 .facetitem {
     cursor: pointer;
 }

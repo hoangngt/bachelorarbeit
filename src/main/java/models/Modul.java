@@ -12,15 +12,11 @@ package models;
  * @author hoangngt
  */
 import static code.Constants.*;
-import code.QueryBean;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.Statement;
 import java.util.ArrayList;
 public class Modul {
     private String modName;
@@ -30,8 +26,7 @@ public class Modul {
     
     private String modLink;
     private String dozent;
-    private String uri;
-    private Individual ind;
+    private String modSem;
     public Modul(Individual ind, OntModel model) {
         modName = ind.getLabel(null);
         System.out.println(modName);
@@ -40,6 +35,7 @@ public class Modul {
         Property wp = model.getProperty(NS, "wählbaresAngebotFür");
         Property wirdgelehrt = model.getProperty(NS, "wirdGelehrtDurch");
         Property link = model.getProperty(NS, "Link");
+        Property sem = model.getProperty(NS, "Semester");
 //        Property inhalt = model.getProperty(NS, "Inhalt");
 //        modInhalt = ind.getPropertyValue(inhalt).toString();
         NodeIterator it = ind.listPropertyValues(vp);
@@ -64,14 +60,12 @@ public class Modul {
             dozent = temp.getLabel("de");
         }
         modLink = ind.getPropertyValue(link).toString();
-        fakName = "Hello";
+        modSem = ind.getPropertyValue(sem).toString();
     }
     public String getModName() {
         return modName;
     }
-    public String getFakName(){
-        return fakName;
-    }
+
     public ArrayList<String> getWahlSG() {
         return wahlSG;
     }
@@ -80,6 +74,9 @@ public class Modul {
     }
     public String getLink(){
         return modLink;
+    }
+    public String getSem(){
+        return modSem;
     }
     public String getDozent(){
         return dozent;
